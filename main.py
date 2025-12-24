@@ -11,10 +11,9 @@ st.set_page_config(
     page_title="InsureSense | Medical Insurance Cost Estimation",
     page_icon="🏥",
     layout="wide",
-    initial_sidebar_state="collapsed"
+    initial_sidebar_state="expanded"
 )
 
-# Custom CSS
 st.markdown("""
 <style>
 * {
@@ -23,11 +22,11 @@ st.markdown("""
 }
 
 html, body, [data-testid="stAppViewContainer"] {
-    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    background: #0a0e27;
 }
 
 [data-testid="stAppViewContainer"] {
-    background: linear-gradient(135deg, #0f172a 0%, #020617 100%);
+    background: #0a0e27;
 }
 
 .main {
@@ -41,209 +40,168 @@ html, body, [data-testid="stAppViewContainer"] {
 .app-container {
     max-width: 1200px;
     margin: 0 auto;
-    padding: 40px 20px;
+    padding: 30px 20px;
 }
 
 .page-title {
-    font-size: 48px;
+    font-size: 42px;
     font-weight: 700;
-    color: #f9fafb;
-    margin-bottom: 16px;
+    color: #ffffff;
+    margin-bottom: 8px;
     letter-spacing: -0.5px;
 }
 
 .page-subtitle {
-    font-size: 18px;
-    color: #d1d5db;
-    margin-bottom: 40px;
-    line-height: 1.6;
-}
-
-.glass-card {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 16px;
-    padding: 32px;
-    box-shadow: 0px 10px 30px rgba(0, 0, 0, 0.4);
+    font-size: 16px;
+    color: #ffffff;
     margin-bottom: 24px;
-}
-
-.glass-card-sm {
-    background: rgba(255, 255, 255, 0.08);
-    backdrop-filter: blur(12px);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
-    box-shadow: 0px 8px 20px rgba(0, 0, 0, 0.3);
+    line-height: 1.5;
 }
 
 .section-title {
-    font-size: 24px;
+    font-size: 20px;
     font-weight: 700;
-    color: #f9fafb;
-    margin-bottom: 24px;
+    color: #ffffff;
+    margin-bottom: 12px;
+    margin-top: 20px;
 }
 
 .section-subtitle {
     font-size: 16px;
     font-weight: 600;
-    color: #e5e7eb;
-    margin-bottom: 16px;
-    margin-top: 24px;
+    color: #ffffff;
+    margin-bottom: 12px;
+    margin-top: 16px;
 }
 
 .label-text {
-    color: #d1d5db;
+    color: #ffffff;
     font-weight: 500;
     font-size: 14px;
-    margin-bottom: 8px;
+    margin-bottom: 6px;
     display: block;
 }
 
 .result-value {
-    font-size: 42px;
+    font-size: 40px;
     font-weight: 700;
-    color: #38bdf8;
+    color: #22d3ee;
     letter-spacing: -1px;
 }
 
 .secondary-value {
-    font-size: 28px;
+    font-size: 26px;
     font-weight: 700;
-    color: #fbbf24;
+    color: #22d3ee;
 }
 
 .note-text {
     font-size: 13px;
-    color: #9ca3af;
+    color: #ffffff;
     line-height: 1.5;
-    margin-top: 12px;
+    margin-top: 8px;
 }
 
-.cta-button {
-    background: linear-gradient(135deg, #06b6d4 0%, #0891b2 100%);
-    color: white;
-    font-weight: 600;
-    padding: 14px 32px;
-    border: none;
+.card {
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(34, 211, 238, 0.2);
     border-radius: 8px;
-    cursor: pointer;
-    transition: all 0.3s ease;
-    font-size: 16px;
-}
-
-.cta-button:hover {
-    transform: translateY(-2px);
-    box-shadow: 0px 12px 24px rgba(6, 182, 212, 0.3);
-}
-
-.feature-item {
-    padding: 24px;
-    background: rgba(255, 255, 255, 0.05);
-    border: 1px solid rgba(255, 255, 255, 0.08);
-    border-radius: 12px;
+    padding: 16px;
     margin-bottom: 16px;
+}
+
+.card-sm {
+    background: rgba(6, 182, 212, 0.08);
+    border: 1px solid rgba(34, 211, 238, 0.2);
+    border-radius: 8px;
+    padding: 12px;
+    margin-bottom: 12px;
 }
 
 .feature-item-title {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    color: #f9fafb;
-    margin-bottom: 8px;
+    color: #ffffff;
+    margin-bottom: 6px;
 }
 
 .feature-item-desc {
-    font-size: 14px;
-    color: #d1d5db;
-    line-height: 1.6;
+    font-size: 13px;
+    color: #ffffff;
+    line-height: 1.5;
 }
 
 .step-number {
-    font-size: 36px;
+    font-size: 28px;
     font-weight: 700;
-    color: #38bdf8;
-    margin-bottom: 8px;
+    color: #22d3ee;
+    margin-bottom: 6px;
 }
 
 .step-title {
-    font-size: 18px;
+    font-size: 16px;
     font-weight: 700;
-    color: #f9fafb;
-    margin-bottom: 8px;
+    color: #ffffff;
+    margin-bottom: 6px;
 }
 
 .step-desc {
-    font-size: 14px;
-    color: #d1d5db;
-    line-height: 1.6;
-}
-
-.factor-card {
-    background: rgba(255, 255, 255, 0.08);
-    border: 1px solid rgba(255, 255, 255, 0.1);
-    border-radius: 12px;
-    padding: 20px;
-    margin-bottom: 16px;
+    font-size: 13px;
+    color: #ffffff;
+    line-height: 1.5;
 }
 
 .factor-name {
-    font-size: 16px;
+    font-size: 15px;
     font-weight: 700;
-    color: #38bdf8;
-    margin-bottom: 8px;
+    color: #22d3ee;
+    margin-bottom: 6px;
 }
 
 .factor-desc {
-    font-size: 14px;
-    color: #d1d5db;
-    line-height: 1.6;
+    font-size: 13px;
+    color: #ffffff;
+    line-height: 1.5;
 }
 
 .highlight {
-    color: #fbbf24;
+    color: #22d3ee;
     font-weight: 600;
 }
 
-.navigation {
-    display: flex;
-    gap: 16px;
-    margin-top: 40px;
-    justify-content: center;
-    flex-wrap: wrap;
-}
-
-.nav-button {
-    padding: 10px 20px;
-    background: rgba(255, 255, 255, 0.1);
-    border: 1px solid rgba(255, 255, 255, 0.2);
-    border-radius: 8px;
-    color: #d1d5db;
-    cursor: pointer;
-    font-weight: 500;
-    transition: all 0.3s ease;
-    text-decoration: none;
-    display: inline-block;
-}
-
-.nav-button:hover {
-    background: rgba(255, 255, 255, 0.15);
-    color: #f9fafb;
-}
-
 [data-testid="stSidebar"] {
-    background: rgba(15, 23, 42, 0.8);
-    backdrop-filter: blur(10px);
+    background: #0f1629;
 }
 
-.stSlider [data-testid="stTickBar"] {
-    background: rgba(6, 182, 212, 0.3);
+[data-testid="stSidebar"] [data-testid="stMarkdownContainer"] {
+    padding: 10px 0;
 }
 
-.stNumberInput input, .stSelectbox select, .stTextInput input {
-    background: rgba(255, 255, 255, 0.08) !important;
-    border: 1px solid rgba(255, 255, 255, 0.1) !important;
-    color: #f9fafb !important;
+.stRadio > label {
+    color: #ffffff !important;
+    font-size: 14px !important;
+}
+
+.stRadio > label > div {
+    font-size: 14px;
+}
+
+input, select, textarea {
+    background: rgba(34, 211, 238, 0.08) !important;
+    border: 1px solid rgba(34, 211, 238, 0.2) !important;
+    color: #ffffff !important;
+}
+
+input::placeholder {
+    color: #888888 !important;
+}
+
+button {
+    color: #ffffff !important;
+}
+
+p {
+    color: #ffffff;
 }
 
 </style>
@@ -252,31 +210,22 @@ html, body, [data-testid="stAppViewContainer"] {
 # Navigation
 st.markdown('<div class="app-container">', unsafe_allow_html=True)
 
-# Sidebar navigation
 page = st.sidebar.radio(
-    "Navigation",
-    ["Home", "Cost Estimator", "How It Works", "Insights & Factors", "About the Project"],
+    "",
+    ["Home", "Estimator", "How It Works", "Factors", "About"],
     label_visibility="collapsed"
-)
-
-st.sidebar.markdown("---")
-st.sidebar.markdown(
-    "<p style='color: #9ca3af; font-size: 12px; text-align: center;'>"
-    "InsureSense v1.0<br>Medical Insurance Cost Estimation"
-    "</p>",
-    unsafe_allow_html=True
 )
 
 # Route to pages
 if page == "Home":
     show_home()
-elif page == "Cost Estimator":
+elif page == "Estimator":
     show_estimator()
 elif page == "How It Works":
     show_how_it_works()
-elif page == "Insights & Factors":
+elif page == "Factors":
     show_insights()
-elif page == "About the Project":
+elif page == "About":
     show_about()
 
 st.markdown('</div>', unsafe_allow_html=True)
